@@ -7,9 +7,24 @@ public class BookDetails {
     static StringBuilder sb = new StringBuilder();
     static BookOperations bds = new BookOperations();
 
+    public String updateBookDetails(Book bookNew) throws BookException {
+        if(isValid(bookNew) == true) {
+            return bds.addBookOperations(bookNew);
+        }
+        return "";
+    }
+    public String deleteBookDetails(int bookNo){
+        return bds.deleteBookOperations(bookNo);
+    }
+
+    public Book searchBookDetails(int bookNo){
+        return bds.searchBookOperations(bookNo);
+    }
+
     public List<Book> showBookDetails() {
        return bds.showBook();
    }
+
     public String addBookDetails(Book book) throws BookException {
         if(isValid(book) == true) {
             return bds.addBookOperations(book);
